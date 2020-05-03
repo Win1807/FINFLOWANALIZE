@@ -1,0 +1,2 @@
+# FINFLOWANALIZE
+App standard
