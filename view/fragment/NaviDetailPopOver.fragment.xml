@@ -1,0 +1,168 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	
+	<Dialog title="{i18n>DsplyHS}"
+	class="sapUiContentPadding"
+		placement="Bottom"
+		>
+		<l:VerticalLayout width="100%">
+			<l:content>
+				<VBox class="detailInfoForm">
+					
+					<HBox>
+						<RadioButton id = "fin.cash.fa.bah-nvg" text="{i18n>BAHID}" select="handleSelect" />
+					</HBox>
+					<HBox>
+						<VBox width = '32px'>
+							</VBox>
+						<VBox width = '200px' padding-left = '40px'>
+							<Label text="{i18n>BAH}:" labelFor="fin.cash.fa.bank-account-hierarchy-id"/>
+						</VBox>
+					</HBox>
+					<HBox>
+						<VBox width = '32px'>
+							</VBox>
+						<Input  width = "100%"
+								id="fin.cash.fa.bank-account-hierarchy-id"
+								type="Text"
+								showSuggestion="false"
+								showValueHelp="true"
+								enabled = "false"
+								valueHelpOnly = "true"
+								valueHelpRequest="handleBAValueHelp">
+						</Input>
+					</HBox>
+					<HBox>
+						<RadioButton id = "fin.cash.fa.lhh-nvg" text="{i18n>LHH}" select="handleSelect" />
+					</HBox>
+					<FlexBox height='4px'/>
+					<HBox>
+						<VBox width = '32px'>
+							</VBox>
+						<VBox width = '200px' >
+							<Label text="{i18n>LHHID}:" labelFor="fin.cash.fa.liquidity-item-hierarchy-id"/> 
+						</VBox>
+					</HBox>
+					<HBox>
+						<VBox width = '32px'>
+							</VBox>
+						<VBox>
+							<Input
+								id="fin.cash.fa.liquidity-item-hierarchy-id"
+								type="Text"
+								showSuggestion="false"
+								showValueHelp="true"
+								valueHelpOnly = "true"
+								enabled = "false"
+								valueHelpRequest="handleLQValueHelp">
+							</Input>
+						</VBox>
+					</HBox>
+					<HBox id= "fin.cash.fa.lih-dc" >
+					    <VBox width = '32px'>
+							</VBox>
+						<VBox width = '350px' >
+							<Label text="{i18n>DisplayCurrencyLLQ}:" labelFor="fin.cash.fa.lih-displaycurrency"/> 
+						</VBox>
+						
+					</HBox>
+					<HBox>
+						 <VBox width = '32px'>
+							</VBox>
+						<VBox>
+							<Input
+								id="fin.cash.fa.lih-displaycurrency"
+								type="Text"
+								showSuggestion="false"
+								showValueHelp="true"
+								enabled = "true"
+								valueHelpOnly = "true"
+								valueHelpRequest="handleDsplyCrcyValueHelp">
+							</Input>
+						</VBox>
+					</HBox>
+				
+					<HBox visible = "false">
+						<Label text="{i18n>DisplayCurrency}:" /> 
+						<Input
+							id="fin.cash.fa.bah-displaycurrency"
+							type="Text"
+							
+							showSuggestion="false"
+							showValueHelp="true"
+							enabled = "false"
+							valueHelpOnly = "true"
+							valueHelpRequest="handleDsplyCrcyValueHelp">
+						</Input>
+					</HBox>
+					
+					<HBox>
+						<RadioButton id = "fin.cash.fa.cp-nvg" text="{i18n>CP}" select="handleSelect" />
+					</HBox>
+					<HBox>
+						<VBox width = '32px'>
+							</VBox>
+						<VBox width = '200px' padding-left = '40px'>
+							<Label text="{i18n>CPID}:" labelFor="fin.cash.fa.cash-pool-id"/>
+						</VBox>
+					</HBox>
+					<HBox>
+						<VBox width = '32px'>
+							</VBox>
+						<Input  width = "100%"
+								id="fin.cash.fa.cash-pool-id"
+								type="Text"
+								showSuggestion="false"
+								showValueHelp="true"
+								enabled = "false"
+								valueHelpOnly = "true"
+								valueHelpRequest="handleCPValueHelp">
+						</Input>
+					</HBox>
+					<HBox id= "fin.cash.fa.cp-dc" >
+					    <VBox width = '32px'>
+							</VBox>
+						<VBox width = '350px' >
+							<Label text="{i18n>DisplayCurrencyCP}:" labelFor="fin.cash.fa.cp-displaycurrency"/> 
+						</VBox>
+					</HBox>
+					<HBox>
+						<VBox width = '32px'>
+							</VBox>
+						<Input
+							id="fin.cash.fa.cp-displaycurrency"
+							type="Text"
+							showSuggestion="false"
+							showValueHelp="true"
+							enabled = "false"
+							valueHelpOnly = "true"
+							valueHelpRequest="handleDsplyCrcyValueHelp">
+						</Input>
+					</HBox>
+				</VBox>
+				
+      		</l:content>
+		</l:VerticalLayout>
+    	<!--<beginButton>-->
+     <!-- 		<Button text="{i18n>OK}" press="handleIntrNavigation" />-->
+    	<!--</beginButton>-->
+    	<!--<endButton>-->
+    	<!--	<Button text="{i18n>CANCEL}" press="_cancelSubmit" />-->
+    	<!--</endButton>-->
+    	
+    	<beginButton>
+      		<Button id = "naviDetailPopOverBeginBtn" text="{i18n>OK}" press="handleIntrNavigation" />
+    	</beginButton>
+    	<endButton>
+    		<Button text="{i18n>CANCEL}" press="_cancelSubmit" />
+    	</endButton>
+  	</Dialog>
+
+</core:FragmentDefinition>

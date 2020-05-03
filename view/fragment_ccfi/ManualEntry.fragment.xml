@@ -1,0 +1,106 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:table="sap.ui.table"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:ca="sap.ca.ui.charts" xmlns:viz.data="sap.viz.ui5.data" xmlns:ushell="sap.ushell.ui"
+	xmlns:ca.ui="sap.ca.ui" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+	xmlns:unified="sap.ui.unified" xmlns:smarttable="sap.ui.comp.smarttable"  xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" >  
+    <ScrollContainer height="100%" width="100%" horizontal="true" vertical="true" focusable="true"> 
+    	    <Table mode="None" showNoData="false" items="{AccountAssignment>/}" width="2000px"> 
+    	    
+				<columns>
+					<Column hAlign="Left" width="25px">
+						<Label text=""/>
+					</Column>
+					<Column hAlign="Left" width="100px">
+						<Label text="{/#PaymentDetailSplittedFlow/Vendor/@sap:label}"/>
+					</Column>
+					<Column hAlign="Left" width="100px">
+						<Label text="{/#PaymentDetailSplittedFlow/Customer/@sap:label}"/>
+					</Column>
+					
+					<Column hAlign="Left" width="100px">
+						<Label text="{/#PaymentDetailSplittedFlow/LiquidityItem/@sap:label}"/>
+					</Column>
+					<Column hAlign="Left" width="150px">
+						<Label text="{/#PaymentDetailSplittedFlow/LiquidityItemName/@sap:label}"/>
+					</Column>
+					<!--<Column hAlign="Left" width="100px">-->
+					<!--	<Label text="{/#PaymentDetailSplittedFlow/HouseBank/@sap:label}"/>-->
+					<!--</Column>-->
+					<!--<Column hAlign="Left" width="100px">-->
+					<!--	<Label text="{/#PaymentDetailSplittedFlow/HouseBankAccount/@sap:label}"/>-->
+					<!--</Column>-->
+					<Column hAlign="Left" width="150px">
+						<Label text="{/#PaymentDetailSplittedFlow/AmountInTransactionCurrency/@sap:label}"/>
+					</Column>
+					<Column hAlign="Left" width="100px">
+						<Label text="{/#PaymentDetailSplittedFlow/TransactionCurrency/@sap:label}"/>
+					</Column>
+					<Column hAlign="Left" width="150px">
+						<Label text="{/#PaymentDetailSplittedFlow/AmountInBankAccountCurrency/@sap:label}"/>
+					</Column>
+					<Column hAlign="Left" width="100px">
+						<Label text="{/#PaymentDetailSplittedFlow/BankAccountCurrency/@sap:label}"/>
+					</Column>
+					<Column hAlign="Left" width="100px">
+						<Label text="{/#PaymentDetailSplittedFlow/CostCenter/@sap:label}"/>
+					</Column>
+					<Column hAlign="Left" width="100px">
+						<Label text="{/#PaymentDetailSplittedFlow/ProfitCenter/@sap:label}"/>
+					</Column>
+					<Column hAlign="Left" width="100px">
+						<Label text="{/#PaymentDetailSplittedFlow/Segment/@sap:label}"/>
+					</Column>
+					<Column hAlign="Left" width="150px">
+						<Label text="{/#PaymentDetailSplittedFlow/BusinessPartner/@sap:label}"/>
+					</Column>
+					<!--<Column hAlign="Left" width="150px">-->
+					<!--	<Label text="{/#PaymentDetailSplittedFlow/AssetContract/@sap:label}"/>-->
+					<!--</Column>-->
+					<Column hAlign="Left" width="100px">
+						<Label text="{/#PaymentDetailSplittedFlow/BusinessArea/@sap:label}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<CheckBox selected="{AccountAssignment>Selected}"></CheckBox>
+							<Input type="text" value="{AccountAssignment>Vendor}" 
+							    showValueHelp="true" valueHelpRequest="handleValueHelpRequest_Vendor"/>
+							<Input type="text" value="{AccountAssignment>Customer}" showSuggestion="true"
+							    showValueHelp="true" valueHelpRequest="handleValueHelpRequest_Customer"/>
+							<Input type="text" value="{AccountAssignment>LiquidityItem}" 
+							    showValueHelp="true" valueHelpRequest="handleValueHelpRequest_LiquidityItem"/>
+							<Text text="{AccountAssignment>LiquidityItemName}"/>
+							<!--<Input type="text" value="{AccountAssignment>HouseBank}" -->
+							<!--    showValueHelp="true" valueHelpRequest="handleValueHelpRequest_HouseBank"/>-->
+							<!--<Input type="text" value="{AccountAssignment>HouseBankAccount}" -->
+							<!--    showValueHelp="true" valueHelpRequest="handleValueHelpRequest_HouseBankAccount"/>-->
+							<!--<Input type="Number" value="{parts:[{path:'AccountAssignment>AmountInTransactionCurrency'},{path:'AccountAssignment>TransactionCurrency'},{path:'Scaling>/scaling'},{path:'Scaling>/decimals'}], formatter:'fin.cash.paymentdetail.display.util.Formatter.formatAmount'}" -->
+							<!-- required="true"/>-->
+							<Input type="Number" value="{AccountAssignment>AmountInTransactionCurrency}" 
+							 required="true"/>							 
+							<Text text="{AccountAssignment>TransactionCurrency}"/>
+							<Text text="{parts:[{path:'AccountAssignment>AmountInBankAccountCurrency'},{path:'AccountAssignment>BankAccountCurrency'},{path:'Scaling>/scaling'},{path:'Scaling>/decimals'}], formatter:'fin.cash.flow.analyzer.util.Formatter.formatAmount'}"/> 
+							<Text text="{AccountAssignment>BankAccountCurrency}"/>    
+							<Input type="text" value="{AccountAssignment>CostCenter}" 
+							    showValueHelp="true" valueHelpRequest="handleValueHelpRequest_CostCenter"/>    
+							<Input type="text" value="{AccountAssignment>ProfitCenter}" 
+							    showValueHelp="true" valueHelpRequest="handleValueHelpRequest_ProfitCenter"/>    
+							<Input type="text" value="{AccountAssignment>Segment}" 
+							    showValueHelp="true" valueHelpRequest="handleValueHelpRequest_Segment"/>
+							<Input type="text" value="{AccountAssignment>BusinessPartner}"  
+							    showValueHelp="true" valueHelpRequest="handleValueHelpRequest_BusinessPartner"/>   
+							<!--<Input type="text" value="{AccountAssignment>AssetContract}" -->
+							<!--    showValueHelp="false"/>   -->
+							<Input type="text" value="{AccountAssignment>BusinessArea}" 
+							    showValueHelp="true" valueHelpRequest="handleValueHelpRequest_BusinessArea"/>       
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</ScrollContainer>
+</core:FragmentDefinition>

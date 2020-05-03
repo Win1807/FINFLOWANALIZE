@@ -1,0 +1,23 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m" controllerName="fin.cash.flow.analyzer.view.fragment_ccfi.VendorCustomerContact"
+	resourceBundleName="fin.cash.flow.analyzer.view.i18n.i18n" resourceBundleAlias="i18n">
+	<form:SimpleForm  class="bcLowerContainer" minWidth="1024" maxContainerCols="2">
+		<form:content> 
+				<Label text="{i18n>STREETHOUSENUMBER}" />
+				<Text text="{/StreetHouseNumber}" />
+				<Label text="{i18n>CITY}" />
+				<Text text="{/City}" />
+				<Label text="{i18n>POSTCODE}" />
+				<Text text="{/PostCode}" />
+				<Label text="{i18n>TIMEZONE}" />
+				<Text text="{/TimeZone}" />
+				<Label text="{i18n>TELEPHONE}" />
+				<Text text="{/Tel}" />				
+		</form:content>
+	</form:SimpleForm>
+</core:View>

@@ -1,0 +1,62 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	
+	<Dialog title="{i18n>DsplyHS}" class="sapUiContentPadding"
+		placement="Bottom" >
+		<l:VerticalLayout width="100%">
+			<l:content>
+				<VBox class="detailInfoForm">
+					<FlexBox height='4px'/>
+					<HBox>
+						<VBox width = '200px' >
+							<Label text="{i18n>LHHID}:" labelFor="fin.cash.fa.bl-id"/> 
+						</VBox>
+						<VBox>
+							<Input
+								id="fin.cash.fa.bl-id"
+								type="Text"
+								placeholder="{i18n>ELIH}"
+								showSuggestion="false"
+								showValueHelp="true"
+								valueHelpOnly = "true"
+								enabled = "true"
+								valueHelpRequest="handleLQValueHelp">
+							</Input>
+						</VBox>
+					</HBox>
+					<HBox id= "fin.cash.fa.bl-dc" >
+						<VBox width = '200px' >
+							<Label text="{i18n>DisplayCurrency}:" labelFor="fin.cash.fa.bl-displaycurrency"/> 
+						</VBox>
+						<VBox>
+							<Input
+								id="fin.cash.fa.bl-displaycurrency"
+								type="Text"
+								placeholder="{i18n>InputDisplayCurrency}"
+								showSuggestion="false"
+								showValueHelp="true"
+								enabled = "false"
+								valueHelpOnly = "true"
+								valueHelpRequest="handleDsplyCrcyValueHelp">
+							</Input>
+						</VBox>
+					</HBox>
+				</VBox>
+      		</l:content>
+		</l:VerticalLayout>
+    	<beginButton>
+      		<Button id = "handleIntrNavigationBtn" text="{i18n>OK}" press="handleIntrNavigation" />
+    	</beginButton>
+    	<endButton>
+    		<Button text="{i18n>CANCEL}" press="_cancelSubmit" />
+    	</endButton>
+  	</Dialog>
+
+</core:FragmentDefinition>

@@ -1,3 +1,0 @@
-# FINFLOWANALIZE
-App standard
-hi

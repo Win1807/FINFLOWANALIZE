@@ -1,0 +1,36 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<Popover title="{i18n>TITLE_BANK_POPOVER}" 
+		placement="Right" contentHeight="38rem" showHeader="true" contentWidth="20em">
+		<form:SimpleForm minWidth="1024"  class="bcUpperContainer"
+			maxContainerCols="2" layout="ResponsiveGridLayout" >
+			<form:content>
+				<core:Title text="{Bank>/BankName}" />
+				<Label text="{/#HouseBank/BankCountry/@sap:label}" />
+				<Text text="{Bank>/BankCountry}" />
+				<Label text="{/#HouseBank/Currency/@sap:label}" />
+				<Text text="{Bank>/Currency}" />
+				<Label text="{/#HouseBank/CashPool/@sap:label}" />
+				<Text text="{Bank>/CashPool}" />
+				<Label text="{/#HouseBank/InternalContact/@sap:heading}" />
+				<Text text="{Bank>/InternalContact}" />
+				<Label text="{/#HouseBank/InternalPhone/@sap:heading}" />
+				<Link text="{Bank>/InternalPhone}" press="onTapPhone"/>			
+				<Label text="{/#HouseBank/InternalEmail/@sap:heading}" />
+				<Link text="{Bank>/InternalEmail}" press="onTapEmail" />	
+				<Label text="{/#HouseBank/ExternalContact/@sap:heading}" />
+				<Text text="{Bank>/ExternalContact}" />
+				<Label text="{/#HouseBank/ExternalPhone/@sap:heading}" />
+				<Link text="{Bank>/ExternalPhone}" press="onTapPhone"/>			
+				<Label text="{/#HouseBank/ExternalEmail/@sap:heading}" />
+				<Link text="{Bank>/ExternalEmail}" press="onTapEmail" />								
+			</form:content>
+		</form:SimpleForm>
+	</Popover>
+</core:FragmentDefinition>

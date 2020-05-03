@@ -1,0 +1,55 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:l="sap.ui.layout"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core">
+  <Dialog
+    title="{i18n>SETTINGS}"
+    class="sapUiPopupWithPadding" >
+    <content>
+      <l:Grid defaultSpan="L12 M12 S12" width="auto">
+        <l:content>
+          <f:SimpleForm id="form480"
+            minWidth="800"
+            maxContainerCols="2"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanL="4"
+            labelSpanM="4"
+            emptySpanL="0"
+            emptySpanM="0"
+            columnsL="1"
+            columnsM="1"
+            class="editableForm">
+            <f:content> 
+              <Label text="{i18n>SCALING}"/>
+              <Select id="Scaling">
+              	<core:Item key="0" text="{i18n>SCALING_ZERO}"></core:Item>
+              	<core:Item key="3" text="{i18n>SCALING_THREE}"></core:Item>
+              	<core:Item key="6" text="{i18n>SCALING_SIX}"></core:Item>
+              </Select>
+              <Label text="{i18n>DECIMALS}"/>
+              <Select id="Decimals">
+              	<core:Item key="0" text="{i18n>DECIMAL_ZERO}"></core:Item>
+              	<core:Item key="1" text="{i18n>DECIMAL_ONE}"></core:Item>
+              	<core:Item key="2" text="{i18n>DECIMAL_TWO}"></core:Item>
+              	<core:Item key="3" text="{i18n>DECIMAL_THREE}"></core:Item>
+              </Select>
+            </f:content>
+          </f:SimpleForm>
+        </l:content>
+      </l:Grid>
+    </content>
+    <beginButton>
+      <Button text="{i18n>OK}" press="onOK" />
+    </beginButton>
+    <endButton>
+      <Button text="{i18n>CANCEL}" press="onCancel" />
+    </endButton>
+  </Dialog>
+</core:FragmentDefinition>

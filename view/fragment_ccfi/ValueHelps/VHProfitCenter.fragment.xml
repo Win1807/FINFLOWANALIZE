@@ -1,0 +1,20 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="{i18n>PROFITCENTER}"
+		class="sapUiPopupWithPadding"
+		items="{VH_ProfitCenter>/}"
+		search="_handleValueHelpSearch"
+		confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose">
+		<StandardListItem 
+			title="{VH_ProfitCenter>PRCTR}"
+			description="{VH_ProfitCenter>KTEXT}" />
+	</SelectDialog>
+</core:FragmentDefinition>

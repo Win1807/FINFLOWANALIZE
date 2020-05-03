@@ -1,0 +1,42 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m" controllerName="fin.cash.flow.analyzer.view.fragment_ccfi.Bank"
+	resourceBundleName="fin.cash.flow.analyzer.view.i18n.i18n" resourceBundleAlias="i18n">
+	
+	<form:SimpleForm  class="bcLowerContainer" minWidth="1024" maxContainerCols="2">
+		<form:content>
+			<core:Title text="{i18n>TITLE_BANK_POPOVER}" />
+				<Label text="{i18n>BANK_CURRENCY}" />
+				<Text text="{/Currency}" /> 
+		</form:content> 
+	</form:SimpleForm>
+
+	<form:SimpleForm  class="bcLowerContainer" minWidth="1024" maxContainerCols="2">
+		<form:content>
+			<core:Title  text="{i18n>TITLE_INTERNAL_CONTRACT}" />
+			    <Label text="{i18n>NAME}" />
+			    <Text text="{/InternalContact}" />	
+				<Label text="{i18n>PHONE}" />
+				<Link text="{/InternalPhone}" press="onTapPhone"/>			
+				<Label text="{i18n>MAIL}" />
+				<Link text="{/InternalEmail}" press="onTapEmail" />		
+		</form:content>
+	</form:SimpleForm>	
+	
+	<form:SimpleForm  class="bcLowerContainer" minWidth="1024" maxContainerCols="2">
+		<form:content>
+			<core:Title text="{i18n>TITLE_EXTERNAL_CONTRACT}" />
+			    <Label text="{i18n>NAME}" />
+			    <Text text="{/ExternalContact}" />				
+				<Label text="{i18n>PHONE}" />
+				<Link text="{/ExternalPhone}" press="onTapPhone"/>			
+				<Label text="{i18n>MAIL}" />
+				<Link text="{/ExternalEmail}" press="onTapEmail" />		
+		</form:content>
+	</form:SimpleForm>		
+	
+</core:View>
