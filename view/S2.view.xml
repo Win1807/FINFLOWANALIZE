@@ -1,0 +1,49 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:View controllerName="fin.cash.flow.analyzer.controller.S2" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" 
+	xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:suite="sap.suite.ui.commons" xmlns:ui="sap.ca.ui" xmlns="sap.m">
+	<Page>
+		<content>
+			<ObjectHeader id="fin.cash.paymentdetail.display.objectheader"
+			    number="{parts:[{path:'Transaction>/AmountInTransactionCurrency'}, {path:'Transaction>/Currency'},{path:'Scaling>/scaling'},{path: 'Scaling>/decimals'}], formatter:'fin.cash.flow.analyzer.util.Formatter.formatAmount'}"
+				numberUnit="{Transaction>/Currency}" responsive="false" title="{Transaction>/CompanyCodeName}">
+				<attributes>
+					<ObjectAttribute text="{Transaction>/CompanyCode}" title="{/#PaymentDetailItem/CompanyCode/@sap:label}"/>
+					<ObjectAttribute text="{parts:[{path:'Transaction>/ValueDate'}], formatter:'fin.cash.flow.analyzer.util.Formatter.formatDate'}"
+						title="{/#PaymentDetailItem/ValueDate/@sap:label}"/>
+				</attributes>
+			</ObjectHeader>
+			<l:Grid defaultSpan="L12 M12 S12" hSpacing="2rem" vSpacing="0rem" width="auto">
+				<l:content>
+					<f:Form class="isReadonly" editable="false" id="contentgrid">
+						<f:layout>
+							<f:ResponsiveGridLayout/>
+						</f:layout>
+					</f:Form>
+				</l:content>
+			</l:Grid>
+			<l:Grid defaultSpan="L12 M12 S12" hSpacing="2rem" vSpacing="0rem" width="auto" class="gridMarginTop">
+				<l:content> 
+    					<Toolbar> 
+    						<Label text="{i18n>ACCOUNT_ASSIGNMENT_TITLE}" class="table_header_title" />
+    						<ToolbarSpacer/>
+    						<Button id="editManualEntry" type="Transparent" visible="true" text="{i18n>Edit}" press="pressEditManualEntry"></Button>
+    						<Button id="addManualEntry" type="Transparent" visible="false" text="{i18n>Add}" press="pressAddManualEntry"></Button>
+    						<Button id="deleteManualEntry" type="Transparent" visible="false" text="{i18n>Delete}" press="pressDeleteManualEntry"></Button>
+    						<Button id="saveManualEntry" type="Transparent" visible="false" text="{i18n>Save}" press="pressSaveManualEntry"></Button>
+    						<Button id="cancelManualEntry" type="Transparent" visible="false" text="{i18n>Cancel}" press="pressCancelManualEntry"></Button>
+    					</Toolbar> 
+				</l:content>
+			</l:Grid>
+			<l:Grid defaultSpan="L12 M12 S12" hSpacing="2rem" vSpacing="0rem" width="auto" class="gridMarginTop" id="aainfogrid">
+				<l:content>
+				</l:content>
+			</l:Grid>
+			
+		</content>
+		
+	</Page>
+</core:View>

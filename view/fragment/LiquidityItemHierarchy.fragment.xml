@@ -1,0 +1,124 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns="sap.m" xmlns:smartlink="sap.ui.comp.navpopover" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+ xmlns:sfb="sap.ui.comp.smartfilterbar" xmlns:table="sap.ui.table" xmlns:smartTable="sap.ui.comp.smarttable"
+ xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+ <sfb:SmartFilterBar id="smartFilterBarItemForLQ" width="auto" entityType="FCLM_CFBA_LQH_VIEW" search="onSearchButtonPressed"
+  reset="doReload" persistencyKey="fin.cash.flow.analyzer.view.fragment.LQHierarchy" initialise="onInitSmartFilterBar"
+  filterBarExpanded="true" afterVariantLoad="onHandleAfterVariantLoad" beforeVariantFetch="onHandleBeforeVariantSave">
+  <sfb:controlConfiguration>
+   <sfb:ControlConfiguration key="CompanyCode" index="1" groupId="_Basic" hasValueHelpDialog="true" visibleInAdvancedArea="true"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="BankAccountCurrency" index="2" groupId="_Basic" hasValueHelpDialog="true" visibleInAdvancedArea="true"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="CyclePattern" index="3" groupId="_Basic" hasValueHelpDialog="false" visibleInAdvancedArea="true"
+    label="{/#FCLM_CFBA_LQH_VIEW/CyclePattern/@sap:label}" preventInitialDataFetchInValueHelpDialog="false" mandatory="mandatory">
+    <sfb:customControl>
+     <Input id="idCyclePatternForLQ" liveChange="validateCyclePattern" placeholder="{i18n>DataCycleStyle}"/>
+    </sfb:customControl>
+   </sfb:ControlConfiguration>
+   <sfb:ControlConfiguration key="KeyDate" index="4" groupId="_Basic" hasValueHelpDialog="true" visibleInAdvancedArea="true"
+    hasTypeAhead="false" mandatory="mandatory" preventInitialDataFetchInValueHelpDialog="false" label="{i18n>Date}"/>
+   <sfb:ControlConfiguration key="LiquidityHierarchyName" index="5" groupId="_Basic" hasValueHelpDialog="true" visibleInAdvancedArea="true"
+    hasTypeAhead="false" mandatory="mandatory" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="DisplayCurrency" index="6" groupId="_Basic" hasValueHelpDialog="true" visibleInAdvancedArea="true"
+    mandatory="mandatory" hasTypeAhead="true" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="ExRateType" id="exRateTypeFilter" index="7" groupId="MoreOptions" hasValueHelpDialog="true"
+    visibleInAdvancedArea="false" hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="Bank" index="8" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="BankAccount" index="9" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="BankAccountGroup" index="10" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="BankAccountType" index="11" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="ActualDate" index="12" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="true"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="BankCountry" index="13" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="BankGroup" index="14" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="CashPlanningGroup" index="15" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="CertaintyLevel" displayBehaviour="idAndDescription" index="16" groupId="MoreOptions"
+    hasValueHelpDialog="true" visibleInAdvancedArea="false" hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="FiDocumentType" index="17" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="HouseBank" index="18" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="HouseBankAccount" index="19" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="HouseBankAccount" index="20" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="LiquidityItem" index="21" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="PlanningLevel" index="22" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false"/>
+   <sfb:ControlConfiguration key="SummarizationGroup" index="23" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    visible="false" hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="ViewType" index="24" groupId="MoreOptions" hasValueHelpDialog="true" visible="false"
+    visibleInAdvancedArea="false" hasTypeAhead="false" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="OverduePlanningLevel" index="25" groupId="MoreOptions" hasValueHelpDialog="true"
+    label="{/#FCLM_CFBA_LQH_VIEW/OverduePlanningLevel/@sap:label}" visibleInAdvancedArea="false" visible="false" hasTypeAhead="true"
+    preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="SortOrder" visible="false" index="26" groupId="MoreOptions" hasValueHelpDialog="false"
+    label="{/#FCLM_CFBA_LQH_VIEW/SortOrder/@sap:label}" visibleInAdvancedArea="false" hasTypeAhead="true"
+    preventInitialDataFetchInValueHelpDialog="true"/>
+   <sfb:ControlConfiguration key="EndofPeriod" index="27" groupId="MoreOptions" visible="true" hasValueHelpDialog="true" hasTypeAhead="true"
+    label="{/#FCLM_CFBA_CURRENCY_VIEW/EndofPeriod/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="IsBankCurrency" index="28" groupId="MoreOptions" hasValueHelpDialog="true" hasTypeAhead="true"
+    visible="false" label="{/#FCLM_CFBA_LQH_VIEW/IsBankCurrency/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="Calendar" index="29" groupId="MoreOptions" hasValueHelpDialog="true" hasTypeAhead="true" visible="false"
+    label="{/#FCLM_CFBA_LQH_VIEW/Calendar/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="Export" index="30" groupId="MoreOptions" hasValueHelpDialog="true" hasTypeAhead="true" visible="false"
+    label="{/#FCLM_CFBA_LQH_VIEW/Export/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="PreviousFlag" index="31" groupId="MoreOptions" hasValueHelpDialog="true" hasTypeAhead="true" visible="false"
+    label="{/#FCLM_CFBA_LQH_VIEW/PreviousFlag/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="BusinessArea" index="32" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" label="{/#FCLM_CFBA_LQH_VIEW/BusinessArea/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="ProfitCenter" index="33" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" label="{/#FCLM_CFBA_LQH_VIEW/ProfitCenter/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="TradingPartner" index="34" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" label="{/#FCLM_CFBA_LQH_VIEW/TradingPartner/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="Segment" index="35" groupId="MoreOptions" hasValueHelpDialog="true" visibleInAdvancedArea="false"
+    hasTypeAhead="false" label="{/#FCLM_CFBA_LQH_VIEW/Segment/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="HistoricalTimeStamp" index="36" groupId="MoreOptions" hasValueHelpDialog="false"
+    label="{/#FCLM_CFBA_LQH_VIEW/HistoricalTimeStamp/@sap:label}" preventInitialDataFetchInValueHelpDialog="false">
+    <sfb:customControl>
+     <DateTimePicker id="idHistoricalTimeStampForLQ"/>
+    </sfb:customControl>
+   </sfb:ControlConfiguration>
+   <sfb:ControlConfiguration key="ReleaseStatus" index="37" groupId="MoreOptions" visible="false" hasValueHelpDialog="true" hasTypeAhead="true"
+    label="{/#FCLM_CFBA_LQH_VIEW/ReleaseStatus/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="ReconcliationStatus" index="38" groupId="MoreOptions" visible="true" hasValueHelpDialog="true"
+    hasTypeAhead="true" label="{/#FCLM_CFBA_LQH_VIEW/ReconcliationStatus/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="ReleaseFlag" index="39" groupId="MoreOptions" visible="true" hasValueHelpDialog="true" filterType="single"
+    hasTypeAhead="true" label="{/#FCLM_CFBA_LQH_VIEW/ReleaseFlag/@sap:label}" preventInitialDataFetchInValueHelpDialog="false"/>
+   <sfb:ControlConfiguration key="DateIndicator" index="40" groupId="MoreOptions" filterType="single" hasValueHelpDialog="true"
+    label="{/#FCLM_CFBA_CURRENCY_VIEW/DateIndicator/@sap:label}" preventInitialDataFetchInValueHelpDialog="false" visibleInAdvancedArea="true">
+    <sfb:customControl>
+     <Select id="idDateIndicator">
+      <core:Item key="1" text="{i18n>valueDate}"/>
+      <core:Item key="2" text="{i18n>postingDate}"/>
+     </Select>
+    </sfb:customControl>
+   </sfb:ControlConfiguration>
+  </sfb:controlConfiguration>
+  <sfb:customData>
+   <core:CustomData key="defaultDropDownDisplayBehaviour" value="descriptionOnly"/>
+   <core:CustomData key="defaultTokenDisplayBehaviour" value="idAndDescription"/>
+   <core:CustomData key="dateFormatSettings" value='\{"UTC":true,"style":"short"\}'/>
+  </sfb:customData>
+  <sfb:groupConfiguration>
+   <sfb:GroupConfiguration key="_Basic" label="{i18n>BSC_SEL_TITLE}"/>
+   <sfb:GroupConfiguration key="MoreOptions" label="{i18n>DYN_SEL_TITLE}"/>
+  </sfb:groupConfiguration>
+  <sfb:layoutData>
+   <FlexItemData shrinkFactor="0"/>
+  </sfb:layoutData>
+ </sfb:SmartFilterBar>
+</core:FragmentDefinition>

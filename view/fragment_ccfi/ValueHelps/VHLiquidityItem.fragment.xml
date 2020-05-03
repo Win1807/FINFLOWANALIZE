@@ -1,0 +1,20 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="{i18n>LIQUIDITYITEM}"
+		class="sapUiPopupWithPadding"
+		items="{VH_LiquidityItem>/}"
+		search="_handleValueHelpSearch"
+		confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose">
+		<StandardListItem 
+			title="{VH_LiquidityItem>LQPOS}"
+			description="{VH_LiquidityItem>S_TEXT}" />
+	</SelectDialog>
+</core:FragmentDefinition>
